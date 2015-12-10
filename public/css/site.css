@@ -1,0 +1,502 @@
+/*!
+ * Start Bootstrap - Modern Business HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+
+/* Global Styles */
+
+html,
+body {
+    height: 100%;
+}
+.center {
+    text-align: center;
+}
+.title > h3 {
+    font-size: 23px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+.blue-dropdown {
+    background: #2B4587;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 10px 5px 10px 10px;
+    min-width: 40px;
+    text-align: center;
+	padding:2px;
+}
+.blue-dropdown a {
+    color: white;
+}
+
+
+.sortLabel label{
+
+padding-left:5px;
+padding-right:5px;
+}
+.overlay {
+    background-color: white;
+    border: 1px solid #eee;
+    box-shadow: 0 1px 10px;
+    padding: 10px;
+    position: absolute;
+    top: 100px;
+    z-index: 999;
+}
+
+/* 404 Page Styles */
+
+.error-404 {
+    font-size: 100px;
+}
+
+/* Footer Styles */
+
+footer {
+    margin: 50px 0;
+}
+.subnav {
+    height: 40px;
+    padding-top: 10px;
+}
+.fixed {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+.content {
+    margin-top: 40px;
+}
+.subnav i {
+    clear: both;
+    cursor: pointer;
+    position: relative;
+}
+i {
+    cursor: pointer;
+}
+#captcha {
+    display: none;
+}
+.noteLine {
+    background-color: none;
+    color: black;
+    cursor: pointer;
+    margin: 0;
+    padding: 10px 5px;
+}
+.noteLine .close,
+.noteLine i {
+    color: #98979C;
+	padding-right: 20px;
+}
+.noteLine:hover,
+.noteLine .edit {
+    border: 1px solid #E4EEEE;
+    color: #666;
+    padding: 9px 4px;
+}
+.noteLine:hover .close,
+.noteLine:hover i {
+    color: #666;
+}
+.ui-draggable-handle {
+    cursor: pointer;
+}
+.blueBar {
+    background-color: #2B4F87;
+    color: white;
+}
+.blueBar a {
+    color: white;
+}
+
+/* Sidebar Styles */
+
+
+
+
+.ui-accordion .ui-accordion-content {
+    padding: 0;
+}
+.lineVal {
+    font-weight: bold;
+    white-space: pre;
+}
+.ngModal .ngdialog-content {
+    background: none;
+}
+.panel-heading {
+    background-color: #DDD;
+    border-bottom: 2px solid #AAA;
+    color: black;
+    height: inherit;
+}
+.panel-body {
+    padding: inherit;
+}
+.panel-body ul {
+    list-style: none;
+    padding: 0; 
+}
+.panel .row {
+    margin: 0;
+    padding-bottom: 10px;
+}
+.ui-state-default {
+    background: none;
+    border: none;
+    color: black;
+    font-weight: normal;
+}
+.template-label .head {
+    background: #464646;
+    color: white;
+    margin-left: -5px;
+}
+
+/*Side Accordian*/
+
+h3.category,
+.category.template {
+    background-color: white;
+    border: 1px solid #E4EEEE;
+    color: black;
+    font-weight: normal;
+    height: 40px;
+    padding: 10px !important;
+    text-align: center;
+}
+.input-group-addon .toggle {
+    background-color: white;
+    width: inherit;
+}
+.form-control .toggle {
+    border-left: none;
+}
+#noteHeader {
+    background-color: #CCC;
+    color: #2E2E2E;
+    padding-top: 10px;
+}
+.copied {
+    color: #FFFFFF;
+}
+.help {
+    background-color: #CCC;
+    border-radius: 10px;
+    color: white;
+    height: 20px;
+    padding: 4px 3px;
+    width: 20px;
+}
+table > a > i {
+    color: black;
+}
+.table-semi-bordered {
+    border: 1px solid #dddddd;
+}
+.selected {
+    background-color: #CCC;
+}
+.left-border-gray {
+    border-left: #eee 1px solid;
+}
+.light-grey {
+    background: #eee;
+}
+
+/* Clean CSS */
+
+
+/*Site Colors*/
+
+.bottom-left-border-gray {
+    border-bottom: #eee 1px solid;
+    border-left: #eee 1px solid;
+}
+a {
+    cursor: pointer;    
+}
+p {
+    color: #999;
+    font-size: 12px;
+}
+.red {
+    color: #B82234;
+}
+.section-title {
+    color: #2E2E2E;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.sub-title {
+    color: #333;
+    font-size: 14px;
+}
+
+/*Navigational Sidebar*/
+
+.sidebar {
+    
+}
+.sidebar-nav {
+    list-style: none;
+    margin-left: -10px;
+    margin-top: 10px;
+}
+.sidebar-nav li {
+    line-height: 40px;
+    text-indent: 10px;
+}
+.sidebar-nav li a {
+    text-decoration: none;
+}
+.sidebar-nav .active a {
+    color: #2CADE7;
+}
+.add-menu {
+    margin-left: 30px;
+    width: 2.4%;
+}
+.read-only-label {
+    background-color: #F5F5F5;
+    color: #999;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 5px;
+}
+.value-label {
+    background-color: #F5F5F5;s
+    color: black;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 5px;
+}
+.grey-background {
+    background-color: #F5F5F5;
+}
+.dropdown-toggle:hover,
+.dropdown-toggle:focus {
+    color: #E7E7E7;
+}
+.btn-success,
+.btn-primary {
+    border: none;
+    border-radius: 0;
+    font-size: 12px;
+}
+.edit-box {
+    background: #F5F5F5;
+    box-shadow: #999 1px 8px 12px 0.1px;
+    margin-left: 11%;
+    padding: 5px;
+}
+.btn-primary {
+    background-color: #337ab7;
+}
+.col-pad {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.btn-cancel {
+    color: #555;
+    font-size: 12px;
+}
+.btn-cancel:hover {
+    text-decoration: underline;
+}
+
+
+/*subscription info*/
+
+#sub-info:hover {
+    background-color: #F5F5F5;
+    cursor: pointer;
+}
+#sub-info {
+    border: 1px solid #EEE;
+    padding: 20px;
+}
+#ngdialog1-aria-describedby {
+color:#F7F7F7;
+}
+
+
+#btnSubscribe {
+border:0;
+border-radius:0px;
+text-transform: uppercase;
+font-family:'Open Sans', 'Helvetttttica Neue', Arial, sans-serif;
+font-weight:400;
+transition: all .15s ease-out 0s;
+font-size:15px;
+padding:5px 28px;
+color:#2CADE7;
+background-color:transparent;
+border-color:#fff;
+border:1px solid #2CADE7;
+}
+
+#btnSubscribe:hover, 
+#btnSubscribe:focus,
+#btnSubscribe:active,
+#btnSubscribe:hover {
+color:#fff;
+background-color:#2CADE7;
+border-color:transparent;
+}
+
+
+/*margin adjustments*/
+
+.top-margin {
+    margin-top: 10px;
+}
+.top-space {
+    margin-top: 30px;
+}
+.no-margin {
+    margin: 0;
+}
+
+/*note editor*/
+
+.template {
+    background-color: white;
+    padding: 5px 0px 5px 0px;
+    text-align: left;
+    cursor: pointer;
+    border: none;
+	text-transform: lowercase;
+}
+
+.note-content {
+    min-height: 665px;
+    padding-top: 10px;
+	background-color: #F5F5F5;
+}
+.note-header {
+    min-height: 100px;
+}
+.note-header-content {
+    background-color: #E3E3E3;
+    min-height: 130px;
+    padding: 15px 10px 10px 10px;
+}
+
+.tab {
+    background-color: #E3E3E3;
+    color: #2E2E2E;
+    cursor: pointer;
+    margin-right: 20px;
+    padding: 12px 5px;
+    width: 185px;
+	height: 55px;
+    display: inline-block;
+}
+
+.category-accordian .panel-heading {
+    background-color: white;
+}
+.category-accordian a {
+    font-weight: bold;
+    outline: none;
+}
+.category-accordian .panel {
+    border: none;
+}
+
+.h-underline:hover {
+    text-decoration: underline;
+}
+.ui-widget-content {
+    background: none;
+    border: none;
+}
+
+.clickable {
+    cursor: pointer;
+	color:#333;
+
+}
+
+.clickable:hover {
+    cursor: pointer;
+	color:#2CADE7;
+
+}
+
+
+/*subscription page*/
+
+#subscription-header {
+    background-color: #3C5CAD;
+    color: white;
+    margin: -10px -15px 15px -15px;
+    min-height: 88px;
+    text-align: center;
+	border-radius: 0px 0px 0px 0px;
+}
+#subscription-header > h3 {
+    padding-top: 20px;
+}
+#subscription-body {
+    background-color: #F0F0F0;
+    margin: -15px -15px 15px -15px;
+    min-height: 450px;
+    padding-top: 30px;
+	margin-bottom: -3px;
+	border-radius: 0px 0px 0px 0px;
+}
+#subscription-content {
+    
+}
+#subscription-type,
+#subscription-type h1,
+#subscription-type h3,
+#subscription-type label {
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+
+/*LEE STYLES current/archive notes*/
+.finishedHeading legend {
+border-bottom:0px;
+}
+
+.currentHeading legend {
+border-bottom:0px;
+}
+
+
+.finishedBg {
+background-color:#f5f5f5;
+padding:10px;
+}
+
+#activeNotes th, 
+#finishedNotes th, 
+#archiveNotes th {
+color:#999;
+}
+
+.nameWidth {
+min-width:140px;
+}
+
+/*LEE STYLES printing notes page*/
+.print-info {
+font-size: 16px;
+}
+
+
+

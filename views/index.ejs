@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="css/site.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="css/ngDialog.css">
+  <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="css/blueimp-gallery.css">
+  <!-- <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css"> -->
+
+</head>
+<body>
+  <div class="blueBar" style="padding: 10px">
+    <div class="container">
+      <div class="row">
+          <div class="col-md-3">
+            <a href="http://75.156.212.139:8082/smilenotes/"><img src="img/drawer_logo_white300.png" height="40px"></a>
+          </div>
+          <div class="dropdown btn-group">
+            <div class="col-md-1 dropdown-toggle" id="addImage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true" data-target="#dropdown"></span>
+            </div>
+              <ul class="dropdown-menu" aria-labelledby="addImage" id="dropdown" data-target="#addImage">
+                <li><a href="#">New Client Note</a></li>
+                <li><a href="#">New General Note</a></li>
+                <li><a href="#">Add Client</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#" id="addFile">Add File</a></li>
+              </ul>
+          </div>
+          <div class="col-md-1 pull-right" id="search">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" id="header">
+    <div class="row">
+      <div class="col-md-1">
+        <p id="showcase">Showcase</p>
+      </div>
+      <div class="col-md-1 pull-right">
+        <p id="edit">Edit</p>
+      </div>
+    </div>
+  </div>
+  <div class="container" id="header2">
+    <div class="row">
+      <div class="col-md-1">
+        <p class="black">Show</p>
+      </div>
+      <div class="col-md-1 dropdown">
+        <p class="headerButton dropdown-toggle" id"dropdownTagFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">All files</p>
+          <ul class="dropdown-menu" aria-labelledby="dropdownTagFilter">
+            <li><a href="/">All Files</a></li>
+            <!-- Here i am attempting to put the tags into the dropdown from imgs array -->
+          <% for (var i = 0; i < tagArray.length; i++) { %>
+          <li><a class="tagSearch" href="/search?tagSeek=<%=tagArray[i]%>"><%= tagArray[i]%></a></li>
+        <% }%>
+      </ul>
+      </div>
+      <div class="col-md-1">
+        <p class="black">sorted by</p>
+      </div>
+      <div class="col-md-1">
+        <p class="headerButton">Today</p>
+      </div>
+    </div>
+  </div>
+    <div class="hide" id="uploadImageContainer">
+      <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-body col-xs-12">
+              <form id = "uploadForm" enctype = "multipart/form-data" action = "/api/upload" method = "post">
+                <div class="panel-heading">Select an image to upload, and assign labels. Images must have at least one label. Labels cannot contain spaces.
+                </div>
+                <div class="input-group">
+                <input type="file" name="image" id="imageUpload"/>
+                </div>
+                <div class="input-group col-xs-10">
+                  <input type="text" class="form-control" placeholder="Description" name="imageDescription" id="labelBefore">
+                </div>
+                <div class="input-group col-xs-5" >
+                  <input type="text" class="form-control col-xs-6" id="tags" placeholder="Label" name="tags">
+                  <span class="input-group-btn">
+                    <p class="btn btn-default" id="addLabel">Add label.</p>
+                  </span>
+                </div>
+                <div class="input-group col-xs-5" >
+                  <input type="text" class="form-control col-xs-6 imageTag" id="imageTag" placeholder="" name="imageTag" readonly>
+                    <span class="input-group-addon" id="labels">Labels</span>
+                </div>
+                <input type="submit" class="btn btn-default" value="Upload Image" name="submit">
+              </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row"  id="imageContainer">
+      <div class="image">
+                <% for (var i = 0; i < imgsres.length; i++) { %>
+        <div class="col-xs-6 col-md-3">
+          <a data-toggle="modal" data-target=".bs-example-modal-lg" title="<%= imgsres[i].imageTitle %>" href="img/upload/<%= imgsres[i].imagePath %>" class="thumbnail">
+          <img src="img/upload/<%= imgsres[i].imagePath %>" data-imageID= "<%= imgsres[i].imageid %>"data-description="<%=imgsres[i].imageDescription %>"class="img" alt="<%= imgsres[i].imageDescription %>" ></a>
+          <h3><%= imgsres[i].imageTitle %></h3>
+          <p class="datetime"><%= imgsres[i].imageDate %></p>
+          <p class="tag"><%= imgsres[i].tag %></p>
+          <br>
+          <button type="submit" value="Test" class="delete" id="<%= imgsres[i].imageid %>"><span class="glyphicon glyphicon-remove"></span></button>
+              
+        </div>
+          <% } %>
+    </div>
+  </div>
+    </div>
+  </div>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+
+
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+     <img class="img-responsive" src="" id="activeImage" alt="...">
+      <div class="carousel-caption" id="activeImageCaption">
+
+      </div>
+    </div>
+    <% for (var i = 0; i < imgsres.length; i++) { %>
+    <div class="item" imageID="<%= imgsres[i].imageid %>">
+     <img class="img-responsive" src="img/upload/<%= imgsres[i].imagePath %>" alt="...">
+      <div class="carousel-caption">
+        <%= imgsres[i].imageDescription %>
+      </div>
+    </div>
+      <% } %>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+    </div>
+  </div>
+</div>
+  <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script>
+  $(document).ready(function(){
+        window.onload = function () {
+          var button = document.getElementById("addFile");
+            button.addEventListener("click", function() {
+              console.log("button clicked");
+              document.getElementById("uploadImageContainer").className = "container";
+            });
+
+          $('#uploadForm').submit(function(){
+            if ($('#imageUpload').val() === "" || null){
+              alert("Please select an Image");
+              event.preventDefault();
+            }
+            else if ($('#imageTag').val() === "" || null){
+              alert("Please input a label");
+              event.preventDefault();
+            }
+            else if ($('#tags').val() === " " || null){
+              alert("Please input a label");
+              event.preventDefault();
+            }
+             else if ($('#labelBefore').val() === "" || null){
+              alert("Please input a Description");
+              event.preventDefault();
+            }
+            else {
+              return;
+            }
+
+          });
+          $(" .tag ").each(function(){
+            var tag = $( this ).text();
+            var tagSplit = tag.split(',');
+            $( this ).text(tagSplit[0]);
+            for (i = 1; i < tagSplit.length; i++){
+              $( this ).after('<p class="tag">' + tagSplit[i] + "</p");
+            }
+          });
+
+          $("#imageUpload").change(function (){
+            var imageVal = $("#imageUpload").val();
+            if (!imageVal.match(/(?:gif|jpg|png|bmp)$/)) {
+              alert("Only files with the extension .gif/.jpg/.png/.bmp are allowed. Please choose a new file.");
+              this.form.reset();
+            }
+
+          });
+
+          $(" .img ").click( function(){
+            console.log("image clicked");
+            var src = $(this).attr("src");
+            var caption = $(this).attr("data-description");
+            var id = $(this).attr("data-imageID");
+            console.log(id);
+            $(".item").each(function( index ){
+              if ($( this ).attr("imageID") === id){
+              console.log("match");
+              $( this ).removeClass("item").addClass( "hide" ).attr("id","hidden");
+             }
+            });
+            $(" #activeImage ").attr({
+              "src" : src
+            });
+            $(" #activeImageCaption ").text(caption);
+
+          });
+
+
+
+//          $(".tagSearch").click( function(){
+//            var tag = this.innerHTML;
+//            console.log(tag);
+//            tagSeek.open("GET", "/api/search?tagSeek=" + tag, true);
+//          })
+            
+            
+// Creates confirmation box when trying to delete image
+            $(" .delete ").click( function(){
+              console.log("deletePop");
+           
+              if (confirm("are you sure you want to delete?") == true) {
+                console.log("You pressed OK!");
+                var imageid = $(this).attr("id");
+                var button = $(this);
+                console.log(imageid);
+                var reqDelete = new XMLHttpRequest();
+                reqDelete.open("GET", "/api/deleteFile?imageid=" + imageid, true);
+                reqDelete.onload = function(){
+                  if (reqDelete.status == 200){
+                    console.log(reqDelete.responseText);
+                    button.parent().remove();
+                  }
+                }
+                reqDelete.send();
+                  }else{
+                      console.log("You Pressed Cancel!");
+                  }
+                      });
+
+          $( '#addLabel' ).click(function(){
+
+            var x = $('#tags').val()
+
+            if( x.indexOf(' ') > -1){ 
+              alert("Label contains one or more spaces")
+             }else{
+            $('#imageTag').val($( '#imageTag' ).val() + $( '#tags' ).val() + ", ");
+            $('#tags').val("");
+            console.log($('#imageTag').val());
+            }
+          });
+
+          $('#modal').on('hidden.bs.modal', function (e) {
+            $("#hidden").removeClass( "hide" ).addClass( "item" ).attr("id"," ");
+            $(" #carousel-example-generic ").carousel({
+                  pause: true,
+                  interval: false
+              }).carousel(0);
+          });
+          
+
+      }
+});
+
+</script>
+
+
+</body>
+</html>

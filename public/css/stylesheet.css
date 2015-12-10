@@ -1,0 +1,88 @@
+/*
+=======================
+ID
+=======================
+*/
+
+#addImage {
+	font-size: 25px;
+	margin-top: 7px;
+}
+
+#search {
+	font-size: 25px;
+	margin-top: 7px;
+}
+
+#header {
+	margin-top: 50px;
+}
+
+
+#showcase{
+	font-size: 20px;
+	color: #000000;
+}
+
+#edit{
+	color: #000000;
+}
+
+/*#dropdown{
+	margin-left: 20%;
+	margin-top: 5%;
+}
+*/
+/*
+=======================
+Class
+=======================
+*/
+
+.black {
+	color: #000000;
+}
+
+.headerButton {
+	background-color: #2B4F87;
+	color: #FFF;
+	border-radius: 25px;
+	text-align: center;
+}
+
+.btn-group .input:first-child {
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    margin-left: 0;
+}
+
+.btn-group .input {
+    float: left;
+    position: relative;
+}
+
+
+.hide {
+	display: none;
+}
+
+.tag {
+	margin-right: 5px;
+	color: #000000;
+	display: inline-block;
+	padding: 5px;
+	border: solid black 1px; 
+}
+
+.delete {
+	position: absolute; 
+	top: 10px; 
+	right: 25px;
+	background: none;
+    border: none;
+
+}
+
+#labelInput {
+	width: 100px;
+}
